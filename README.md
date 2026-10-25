@@ -41,12 +41,13 @@ npm run dev
 ```
 
 Open the URL printed by Vite after configuring the public Supabase variables. Without them, the app presents setup guidance and does not create local-only data.
-### Render (frontend static site)
+### Deployment
 
-This project is configured for Render as a static site. The app is served from
-`https://scoreboardrobotics.onrender.com` (see `render.yaml` and `docs/RENDER_DEPLOYMENT.md`).
-Backend remains Supabase; set `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` in `.env.local` (dev) or in the
-Render dashboard (CI/deploy).
+Firebase Hosting serves the frontend at `https://roboticscoreboard.web.app`.
+Supabase remains the backend. Render builds and deploys to Firebase on every push
+(see `render.yaml` and `docs/RENDER_DEPLOYMENT.md`); it does not serve the app.
+Set `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` in `.env.local` (dev) or in
+the Render dashboard (CI/deploy), plus `FIREBASE_TOKEN` for the Render deploy step.
 
 
 

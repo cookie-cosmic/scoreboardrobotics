@@ -9,8 +9,8 @@ max_rows = 1000
 
 [auth]
 enabled = true
-site_url = "https://scoreboardrobotics.onrender.com"
-additional_redirect_urls = ["http://localhost:5173", "https://scoreboardrobotics.onrender.com"]
+site_url = "https://roboticscoreboard.web.app"
+additional_redirect_urls = ["http://localhost:5173", "https://roboticscoreboard.web.app", "https://roboticscoreboard.web.app/**", "https://roboticscoreboard.firebaseapp.com", "https://roboticscoreboard.firebaseapp.com/**"]
 jwt_expiry = 3600
 enable_signup = true
 minimum_password_length = 12

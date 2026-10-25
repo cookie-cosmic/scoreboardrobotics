@@ -1,29 +1,21 @@
-# Render Blueprint — static frontend (Vite/React)
-# Backend remains Supabase; set VITE_* env vars in the Render dashboard.
+# Render Blueprint — build/deploy runner (NOT the host)
+# Firebase Hosting remains the frontend URL/domain. Supabase remains the backend.
+# Render builds the Vite app and deploys it to Firebase Hosting on every push.
 services:
   - type: web
-    name: scoreboardrobotics
-    runtime: static
+    name: matchforge-deployer
+    runtime: node
     branch: main
     autoDeploy: true
+    plan: free
     buildCommand: npm ci && npm run build
-    staticPublishPath: ./dist
-    # SPA routing: send all paths to index.html
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    # Cache hashed assets aggressively; never cache index.html
-    headers:
-      - path: /assets/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
-      - path: /index.html
-        name: Cache-Control
-        value: no-cache, no-store, must-revalidate
-    # Set these in the Render dashboard (sync: false => prompted on first deploy)
+    # Deploy the built app to Firebase Hosting, then keep a tiny health endpoint
+    # alive so Render's free web service stays healthy (it does NOT serve the app).
+    startCommand: npx firebase-tools deploy --only hosting --token "$FIREBASE_TOKEN" && node -e "const http=require('http');http.createServer((req,res)=>{res.writeHead(200,{'Content-Type':'text/plain'});res.end('ok')}).listen(process.env.PORT||10000)"
     envVars:
       - key: VITE_SUPABASE_URL
         sync: false
       - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: FIREBASE_TOKEN
         sync: false
