@@ -41,12 +41,12 @@ npm run dev
 ```
 
 Open the URL printed by Vite after configuring the public Supabase variables. Without them, the app presents setup guidance and does not create local-only data.
-### Firebase Hosting (frontend subdomain)
+### Render (frontend static site)
 
-This project is configured for Firebase Hosting on the `roboticscoreboard` Firebase project. The app is served from
-`https://roboticscoreboard.web.app` (see `firebase.json`, `.firebaserc`, and `docs/FIREBASE_DEPLOYMENT.md`).
-Backend remains Supabase; set `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` in `.env.local` (dev) or as GitHub
-secrets (CI).
+This project is configured for Render as a static site. The app is served from
+`https://scoreboardrobotics.onrender.com` (see `render.yaml` and `docs/RENDER_DEPLOYMENT.md`).
+Backend remains Supabase; set `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` in `.env.local` (dev) or in the
+Render dashboard (CI/deploy).
 
 
 

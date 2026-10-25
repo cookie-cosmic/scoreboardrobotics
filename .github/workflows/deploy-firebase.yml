@@ -1,8 +1,6 @@
-name: Deploy to Firebase Hosting
+name: Deploy to Firebase Hosting (manual/legacy)
 
 on:
-  push:
-    branches: [main, master]
   workflow_dispatch:
 
 jobs:
