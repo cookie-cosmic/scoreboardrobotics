@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "ms-playwright.playwright",
+    "vitest.explorer",
+    "supabase.supabase"
+  ]
+}

@@ -1,0 +1,10 @@
+.git
+.github
+node_modules
+supabase
+docs
+e2e
+.vscode
+*.md
+.env*
+firebase-debug.log

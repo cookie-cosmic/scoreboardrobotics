@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "MatchForge: Start app",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "MatchForge: Validate",
+      "type": "npm",
+      "script": "check",
+      "problemMatcher": []
+    },
+    {
+      "label": "MatchForge: Browser tests",
+      "type": "npm",
+      "script": "test:e2e",
+      "problemMatcher": []
+    },
+    {
+      "label": "MatchForge: Apply Supabase migrations",
+      "type": "shell",
+      "command": "npx supabase db push",
+      "problemMatcher": []
+    },
+    {
+      "label": "MatchForge: Deploy Supabase functions",
+      "type": "shell",
+      "command": "npx supabase functions deploy match-action --no-verify-jwt && npx supabase functions deploy controller-session --no-verify-jwt && npx supabase functions deploy create-share-link --no-verify-jwt && npx supabase functions deploy username-auth --no-verify-jwt",
+      "problemMatcher": []
+    }
+  ]
+}

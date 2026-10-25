@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.exclude": {
+    "dist": true,
+    "node_modules": true,
+    "test-results": true,
+    "playwright-report": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
